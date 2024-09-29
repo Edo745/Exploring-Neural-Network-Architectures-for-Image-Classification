@@ -83,12 +83,13 @@ Then, the training logs, metrics, and gradients will be automatically uploaded t
 The following plots show the training and validation loss and accuracy curves for the three models (MLP, CNN, ResNet):
 
 - Training Loss & Accuracy:
-![Training Loss](Lab1\results\train_loss.png)
-![Training Accuracy](Lab1\results\train_acc.png)
+![train_loss](https://github.com/user-attachments/assets/167840b1-f7f6-4f5b-8063-6eeb51fb58f8)
+![train_acc](https://github.com/user-attachments/assets/6450fad8-7e8a-4008-9a8a-157c3aeb9849)
 
 - Validation Loss & Accuracy:
-![Validation Loss](Lab1\results\val_loss.png)
-![Validation Accuracy](Lab1\results\val_acc.png)
+![val_loss](https://github.com/user-attachments/assets/92bd3ba1-50db-49f7-88cb-2c63e02ac1e6)
+![val_acc](https://github.com/user-attachments/assets/3664cbe2-a46a-4813-9fd1-f1a3eb6d26dc)
+
 
 Each graph compares the three models (MLP, CNN, ResNet) to show their performance during training and validation. From these figures, we can observe that ResNet converges faster and reaches higher accuracy due to the effectiveness of skip connections in deeper networks.
 
@@ -98,10 +99,5 @@ One of the main goals of this project was to understand how skip connections in 
 Gradients of ResNet (Layer: layer2.1.conv2.weight):
 
 This plot shows that gradients in ResNet, thanks to the skip connections, maintain a higher magnitude across layers, preventing them from vanishing in deeper layers. This helps ResNet learn more effectively compared to MLP and CNN in very deep architectures.
-### Performance Metrics:
 
-- **MLP:**  
-- **CNN:**  
-- **ResNet:**  
- 
  
