@@ -1,5 +1,4 @@
-# Neural Network Architectures: Implementation and Comparison
-
+# MLP vs CNN vs RESNET
 This repository contains the implementation and comparison of three neural network architectures: a simple Multi-Layer Perceptron (MLP), a Convolutional Neural Network (CNN), and a ResNet architecture. The aim is to explore and analyze their performance on a standard dataset, providing insights into their strengths and weaknesses for different types of tasks, particularly image classification.
 
 A key objective of this project is to understand how skip connections work in deeper architectures like ResNet, and to assess how they help mitigate the vanishing gradient problem, which often affects very deep networks.
