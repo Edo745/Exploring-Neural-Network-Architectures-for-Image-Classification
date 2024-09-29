@@ -41,9 +41,10 @@ The dataset used for training and evaluation is [insert dataset name, e.g., MNIS
 To run the code in this repository, ensure you have the following prerequisites installed:
 
 1. Python 3.x
-2. PyTorch or TensorFlow (depending on the implementation)
-3. NumPy
-4. Matplotlib (for visualizations)
+2. PyTorch  
+3. Torchvision
+4. tqdm
+5. WandB
 
 ### Install required libraries:
 
@@ -53,44 +54,54 @@ pip install -r requirements.txt
 
 ## Usage
 
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/repository-name.git
-cd repository-name
-```
-
 Run the training script for each model:
 
 - For MLP:
 
   ```bash
-  python train_mlp.py
+  python main.py --model mlp --epochs 50 --batch-size 128 --lr 0.1 --num-workers 2 --log
   ```
 
 - For CNN:
 
   ```bash
-  python train_cnn.py
+  python main.py --model cnn --epochs 50 --batch-size 128 --lr 0.1 --num-workers 2 --log
   ```
 
 - For ResNet:
 
   ```bash
-  python train_resnet.py
+  python main.py --model resnet18 --epochs 50 --batch-size 128 --lr 0.1 --num-workers 2 --log
   ```
 
+### Weight & Biases Integration
+You can track experiments and compare results using Weights & Biases using --log argument.
+Then, the training logs, metrics, and gradients will be automatically uploaded to WandB.
+
 ## Results
+### Training and Validation Curves
+The following plots show the training and validation loss and accuracy curves for the three models (MLP, CNN, ResNet):
 
-After training the models, the results, including accuracy, loss curves, and computational complexity, are compared and visualized.
+- Training Loss & Accuracy:
+![Training Loss](Lab1\results\train_loss.png)
+![Training Accuracy](Lab1\results\train_acc.png)
 
+- Validation Loss & Accuracy:
+![Validation Loss](Lab1\results\val_loss.png)
+![Validation Accuracy](Lab1\results\val_acc.png)
+
+Each graph compares the three models (MLP, CNN, ResNet) to show their performance during training and validation. From these figures, we can observe that ResNet converges faster and reaches higher accuracy due to the effectiveness of skip connections in deeper networks.
+
+### Gradients Analysis
+One of the main goals of this project was to understand how skip connections in ResNet alleviate the vanishing gradient problem. The following gradient plots, taken from Weights & Biases, illustrate how gradients propagate through the layers of ResNet compared to the other architectures:
+
+Gradients of ResNet (Layer: layer2.1.conv2.weight):
+
+This plot shows that gradients in ResNet, thanks to the skip connections, maintain a higher magnitude across layers, preventing them from vanishing in deeper layers. This helps ResNet learn more effectively compared to MLP and CNN in very deep architectures.
 ### Performance Metrics:
 
 - **MLP:**  
-  Accuracy: X%, Training Time: X minutes  
 - **CNN:**  
-  Accuracy: Y%, Training Time: Y minutes  
 - **ResNet:**  
-  Accuracy: Z%, Training Time: Z minutes  
-
-A detailed comparison of these metrics can be found in the [results](results) folder.
+ 
+ 
