@@ -1,11 +1,9 @@
 # The deeper neural networks the better?
-This repository contains the implementation and comparison of different neural network architectures: a simple Multi-Layer Perceptron (MLP), a Convolutional Neural Network (CNN), a Deeper Convolutional Neural Network and a ResNet architecture. The aim is to explore and analyze their performance on a standard dataset, providing insights into their strengths and weaknesses for different types of tasks, particularly image classification. In particular, we are going to investigate these topics:
+This repository contains the implementation and comparison of different neural network architectures: a simple Multi-Layer Perceptron (MLP), a Convolutional Neural Network, a deeper Convolutional Neural Network and a ResNet architecture. The aim is to explore and analyze their performance on a standard dataset, providing insights into their strengths and weaknesses for image classification. Di seguito i punti che verranno approfonditi:
 
-- MLP vs CNN
-- CNN vs Deeper CNN
-- Residual Connections
-
-A key objective of this project is to understand how skip connections work in deeper architectures like ResNet, and to assess how they help mitigate the vanishing gradient problem, which often affects very deep networks.
+- **MLP vs CNN**
+- **CNN vs deeper CNN**: è vero che tanto più è profondo un modello tanto più aumentano le performance?
+- **Residual Connections**: come risolvere il problema dei vanishing gradients.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -15,42 +13,31 @@ A key objective of this project is to understand how skip connections work in de
 - [Usage](#usage)
 - [Results](#results)
 
-## Introduction
-
-Neural networks are widely used in machine learning for tasks like image classification, object detection, and more. This repository demonstrates the implementation of three key architectures:
-1. **MLP (Multi-Layer Perceptron):** A simple feedforward neural network.
-2. **CNN (Convolutional Neural Network):** Designed for image data, with layers that capture spatial hierarchies.
-3. **ResNet (Residual Network):** A deeper architecture that uses skip connections to address the vanishing gradient problem.
-
-The goal is to compare the performance of these architectures on the same dataset and analyze their trade-offs in terms of complexity, accuracy, and training time.
-
 ## Architectures
+Di seguito le architetture implementate:
+1. **mlp**  
+   A basic feedforward neural network with fully connected layers.
+   
+3. **cnn19**  
 
-1. **MLP**  
-   A basic feedforward neural network with fully connected layers. This is typically used for non-sequential data but can also be applied to flattened image data.
+4. **cnn30**  
 
-2. **CNN**  
-   This network uses convolutional layers to automatically learn spatial features from the input images, followed by fully connected layers for classification.
-
-3. **ResNet**  
-   ResNet introduces residual connections (skip connections) to allow gradients to flow more easily through deeper networks, enabling better performance for more complex tasks.
+5. **rescnn30**  
+   
 
 ## Dataset
 
-The dataset used for training and evaluation is [insert dataset name, e.g., MNIST or CIFAR-10]. It contains [describe dataset contents], and it's commonly used for benchmarking deep learning models.
+The dataset used for training and evaluation is CIFAR-10.
 
-## Installation
-
+### Install required libraries:
 To run the code in this repository, ensure you have the following prerequisites installed:
 
 1. Python 3.x
 2. PyTorch  
 3. Torchvision
 4. tqdm
-5. WandB
-
-### Install required libraries:
-
+5. wandb
+   
 ```bash
 pip install -r requirements.txt
 ```
@@ -59,7 +46,7 @@ pip install -r requirements.txt
 
 Run the training script for each model:
 
-- For MLP:
+- For mlp:
 
   ```bash
   python main.py --model mlp --epochs 50 --batch-size 128 --lr 0.1 --num-workers 2 --log
@@ -96,11 +83,9 @@ The following plots show the training and validation loss and accuracy curves fo
 
 Each graph compares the three models (MLP, CNN, ResNet) to show their performance during training and validation. From these figures, we can observe that ResNet converges faster and reaches higher accuracy due to the effectiveness of skip connections in deeper networks.
 
-### Gradients Analysis
-One of the main goals of this project was to understand how skip connections in ResNet alleviate the vanishing gradient problem. The following gradient plots, taken from Weights & Biases, illustrate how gradients propagate through the layers of ResNet compared to the other architectures:
-
-Gradients of ResNet (Layer: layer2.1.conv2.weight):
-
-This plot shows that gradients in ResNet, thanks to the skip connections, maintain a higher magnitude across layers, preventing them from vanishing in deeper layers. This helps ResNet learn more effectively compared to MLP and CNN in very deep architectures.
-
- 
+## Conclusions
+- Convolutional neural networks outperform MLPs for the task of image recognition.
+- In very deep neural networks, as we backpropagate the gradients from the output layer to the input layer, these gradients can become extremely small (vanish). This makes it difficult for the network to learn and can lead to poor performance.
+- Residual connections, discussed in the paper [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385), provide a "shortcut" for gradients to flow backwards directly from later layers to earlier layers. In a residual connection, we add the input of a layer (or block of layers) to its output. Mathematically, if \( x \) is the input and \( F(x) \) is the output of a block of layers, a residual connection would compute: \[ y = F(x) + x \]
+This allows the network to learn residual functions with reference to the layer inputs, instead of learning unreferenced functions.
+- Residual connections are great but be carefull with too deep architectures, they can lead to overfitting!
