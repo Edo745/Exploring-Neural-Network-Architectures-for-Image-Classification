@@ -1,9 +1,9 @@
-# The deeper neural networks the better?
-This repository contains the implementation and comparison of different neural network architectures: a simple Multi-Layer Perceptron (MLP), a Convolutional Neural Network, a deeper Convolutional Neural Network and a ResNet architecture. The aim is to explore and analyze their performance on a standard dataset, providing insights into their strengths and weaknesses for image classification. Di seguito i punti che verranno approfonditi:
+# Exploring Neural Network Architectures for Image Classification
+This repository contains the implementation and comparison of different neural network architectures: a simple Multi-Layer Perceptron (MLP), a Convolutional Neural Network, a deeper Convolutional Neural Network and a ResNet architecture. The aim is to explore and analyze their performance on a standard dataset, providing insights into their strengths and weaknesses for image classification. The following points will be explored:
 
-- **MLP vs CNN**
-- **CNN vs deeper CNN**: è vero che tanto più è profondo un modello tanto più aumentano le performance?
-- **Residual Connections**: come risolvere il problema dei vanishing gradients.
+- **MLP vs CNN**: Which architecture performs better in image recognition?
+- **CNN vs deeper CNN**: Is it true that the deeper a model is, the better its performance?
+- **Residual Connections**: How to solve the vanishing gradients problem.
 
 ## Table of Contents
 - [Introduction](#introduction)
