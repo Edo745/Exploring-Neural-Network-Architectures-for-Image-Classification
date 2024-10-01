@@ -86,6 +86,5 @@ Each graph compares the three models (MLP, CNN, ResNet) to show their performanc
 ## Conclusions
 - Convolutional neural networks outperform MLPs for the task of image recognition.
 - In very deep neural networks, as we backpropagate the gradients from the output layer to the input layer, these gradients can become extremely small (vanish). This makes it difficult for the network to learn and can lead to poor performance.
-- Residual connections, discussed in the paper [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385), provide a "shortcut" for gradients to flow backwards directly from later layers to earlier layers. In a residual connection, we add the input of a layer (or block of layers) to its output. Mathematically, if \( x \) is the input and \( F(x) \) is the output of a block of layers, a residual connection would compute: \[ y = F(x) + x \]
-This allows the network to learn residual functions with reference to the layer inputs, instead of learning unreferenced functions.
+- Residual connections, discussed in the paper [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385), provide a "shortcut" for gradients to flow backwards directly from later layers to earlier layers. Mathematically, if $x$ is the input and $F(x)$ is the output of a block of layers, a residual connection would compute: $y = F(x) + x$.
 - Residual connections are great but be carefull with too deep architectures, they can lead to overfitting!
