@@ -1,20 +1,14 @@
 # Exploring Neural Network Architectures for Image Classification
-This repository contains the implementation and comparison of different neural network architectures: a simple Multi-Layer Perceptron (MLP), a Convolutional Neural Network, a deeper Convolutional Neural Network and a ResNet architecture. The aim is to explore and analyze their performance on a standard dataset, providing insights into their strengths and weaknesses for image classification. The following points will be explored:
+This repository contains the implementation and comparison of different neural network architectures: a simple Multi-Layer Perceptron (MLP), a Convolutional Neural Network, a deeper Convolutional Neural Network and a ResNet architecture. The aim is to explore and analyze their performance on a standard dataset, providing insights into their strengths and weaknesses for image classification nad trying to replicate the results highlighted from the paper [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385). The following points will be explored:
 
 - **MLP vs CNN**: Which architecture performs better in image recognition?
 - **CNN vs deeper CNN**: Is it true that the deeper a model is, the better its performance?
-- **Residual Connections**: the benefits of residual connections
+- **Residual Networks**: The benefits of residual connections
+- 
+## Dataset
+The dataset used for training and evaluation is CIFAR-10.
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Architectures](#architectures)
-- [Dataset](#dataset)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Results](#results)
-
-## Architectures
-Di seguito le architetture implementate:
+## Implemented architectures
 1. **mlp**  
    A basic feedforward neural network with fully connected layers.
    
@@ -22,49 +16,20 @@ Di seguito le architetture implementate:
 
 4. **cnn30**  
 
-5. **rescnn30**  
-   
+5. **residual_cnn30**  
 
-## Dataset
-
-The dataset used for training and evaluation is CIFAR-10.
-
-### Install required libraries:
-To run the code in this repository, ensure you have the following prerequisites installed:
-
-1. Python 3.x
-2. PyTorch  
-3. Torchvision
-4. tqdm
-5. wandb
-   
+## Usage
+Install the requirements:
 ```bash
 pip install -r requirements.txt
 ```
 
-## Usage
-
 Run the training script for each model:
-
-- For mlp:
-
-  ```bash
-  python main.py --model mlp --epochs 50 --batch-size 128 --lr 0.1 --num-workers 2 --log
-  ```
-
-- For CNN:
-
-  ```bash
-  python main.py --model cnn --epochs 50 --batch-size 128 --lr 0.1 --num-workers 2 --log
-  ```
-
-- For ResNet:
-
   ```bash
   python main.py --model resnet18 --epochs 50 --batch-size 128 --lr 0.1 --num-workers 2 --log
   ```
 
-### Weight & Biases Integration
+## Weight & Biases Integration
 You can track experiments and compare results using Weights & Biases using --log argument.
 Then, the training logs, metrics, and gradients will be automatically uploaded to WandB.
 
@@ -83,7 +48,7 @@ The following plots show the training and validation loss and accuracy curves fo
 
 Each graph compares the three models (MLP, CNN, ResNet) to show their performance during training and validation. From these figures, we can observe that ResNet converges faster and reaches higher accuracy due to the effectiveness of skip connections in deeper networks.
 
-## Layer responses analysis
+### Layer responses analysis
 The paper highlights that ResNets generally have smaller magnitudes of responses compared to plaid networs. Let's prove it!
 
 # What we have learned
@@ -91,7 +56,7 @@ The paper highlights that ResNets generally have smaller magnitudes of responses
 
 - As the depth of a neural network increases beyond a certain point, its performance on the training and test sets starts to degrade due to the vanishing of the gradients.
   
-- Residual connections, discussed in the paper [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385), addresses the degradation problem providing a "shortcut" for gradients to flow backwards directly from later layers to earlier layers. This helps mitigate the vanishing gradient problem and enables the training of significantly deeper networks.
+- Residual connections addresses the degradation problem providing a "shortcut" for gradients to flow backwards directly from later layers to earlier layers. This helps mitigate the vanishing gradient problem and enables the training of significantly deeper networks.
   
 - The analysis of layer responses shows that ResNets generally have smaller magnitudes of responses compared to plain networks. This means that residual functions are closer to zero than non-residual functions, making them easier to optimize. In other words, the model has to learn just small corrections.
   
