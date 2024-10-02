@@ -4,7 +4,7 @@ This repository contains the implementation and comparison of different neural n
 - **MLP vs CNN**: Which architecture performs better in image recognition?
 - **CNN vs deeper CNN**: Is it true that the deeper a model is, the better its performance?
 - **Residual Networks**: The benefits of residual connections
-- 
+  
 ## Dataset
 The dataset used for training and evaluation is CIFAR-10.
 
