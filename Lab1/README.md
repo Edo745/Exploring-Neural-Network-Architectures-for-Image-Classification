@@ -3,7 +3,7 @@ This repository contains the implementation and comparison of different neural n
 
 - **MLP vs CNN**: Which architecture performs better in image recognition?
 - **CNN vs deeper CNN**: Is it true that the deeper a model is, the better its performance?
-- **Residual Connections**: How to solve the vanishing gradients problem.
+- **Residual Connections**: the benefits of residual connections
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -83,8 +83,16 @@ The following plots show the training and validation loss and accuracy curves fo
 
 Each graph compares the three models (MLP, CNN, ResNet) to show their performance during training and validation. From these figures, we can observe that ResNet converges faster and reaches higher accuracy due to the effectiveness of skip connections in deeper networks.
 
-## Conclusions
-- Convolutional neural networks outperform MLPs for the task of image recognition.
-- In very deep neural networks, as we backpropagate the gradients from the output layer to the input layer, these gradients can become extremely small (vanish). This makes it difficult for the network to learn and can lead to poor performance.
-- Residual connections, discussed in the paper [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385), provide a "shortcut" for gradients to flow backwards directly from later layers to earlier layers. Mathematically, if $x$ is the input and $F(x)$ is the output of a block of layers, a residual connection would compute: $y = F(x) + x$.
+## Layer responses analysis
+The paper highlights that ResNets generally have smaller magnitudes of responses compared to plaid networs. Let's prove it!
+
+# What we have learned
+- The convolutional neural networks outperform MLPs for the task of image recognition. 
+
+- As the depth of a neural network increases beyond a certain point, its performance on the training and test sets starts to degrade due to the vanishing of the gradients.
+  
+- Residual connections, discussed in the paper [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385), addresses the degradation problem providing a "shortcut" for gradients to flow backwards directly from later layers to earlier layers. This helps mitigate the vanishing gradient problem and enables the training of significantly deeper networks.
+  
+- The analysis of layer responses shows that ResNets generally have smaller magnitudes of responses compared to plain networks. This means that residual functions are closer to zero than non-residual functions, making them easier to optimize. In other words, the model has to learn just small corrections.
+  
 - Residual connections are great but be carefull with too deep architectures, they can lead to overfitting!
