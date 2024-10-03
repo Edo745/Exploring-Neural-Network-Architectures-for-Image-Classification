@@ -9,18 +9,18 @@ This repository contains the implementation and comparison of different neural n
 The dataset used for training and evaluation is CIFAR-10.
 
 ## Implemented architectures
-1. **mlp**  
-   A basic feedforward neural network with fully connected layers.
-   
-3. **cnn19**  
+<p align="center">
+  <img width="150" src="https://github.com/user-attachments/assets/e24b34c6-0915-46f3-ae58-2be1e03d8869">
+</p>
 
-4. **cnn30**  
+<p align="center">
+  <img width="500" src="https://github.com/user-attachments/assets/2cfc3467-d180-4fab-91a4-20c39daee5e3">
+</p>
 
-5. **residual_cnn30**
+<p align="center">
+  <img width="715" src="https://github.com/user-attachments/assets/2ab00c18-46d8-4a1e-b0c6-89f1a898cb19">
+</p>
 
-7. **resnet18**
-   
-9. **resnet50**  
 
 ## Usage
 Install the requirements:
@@ -58,8 +58,8 @@ Each graph compares the three models (MLP, CNN, ResNet) to show their performanc
 ### Layer responses analysis
 The paper highlights that ResNets generally have smaller magnitudes of responses compared to plaid networks. Let's prove it!
 
-# What we have learned
-- The convolutional neural networks outperform MLPs for the task of image recognition. The reason is that convolutional layers naturally retain spatial
+# Take home message
+- The convolutional neural networks outperform MLPs for the task of image recognition. Convolutional layers naturally retain spatial
 information which is lost in fully-connected layers.
 
 - As the depth of a neural network increases beyond a certain point, its performance on the training and test sets starts to degrade due to the vanishing of the gradients.
