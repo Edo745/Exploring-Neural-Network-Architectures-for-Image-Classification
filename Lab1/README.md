@@ -69,6 +69,6 @@ information which is lost in fully-connected layers.
   <img width="500" src="https://github.com/user-attachments/assets/45554c19-b234-468a-8142-e2a5e8f40437">
 </p>
   
-- The analysis of layer responses shows that ResNets generally have smaller magnitudes of responses compared to plain networks. This means that residual functions are closer to zero than non-residual functions, making them easier to optimize. In other words, the model has to learn just small corrections.
+- ResNets generally have smaller magnitudes of responses compared to plain networks. This means that residual functions are closer to zero than non-residual functions, making them easier to optimize. In other words, the model has to learn just small corrections.
   
 - Residual connections are great but be carefull with too deep architectures, they can lead to overfitting!
