@@ -58,6 +58,8 @@ Each graph compares the three models (MLP, CNN, ResNet) to show their performanc
 ### Layer responses analysis
 The paper highlights that ResNets generally have smaller magnitudes of responses compared to plaid networks. Let's prove it!
 
+## Can we make the model explanable?
+Let's implement Grad-CAM following the paper [Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization](https://arxiv.org/pdf/1610.02391).
 # Take home message
 - The convolutional neural networks outperform MLPs for the task of image recognition. Convolutional layers naturally retain spatial
 information which is lost in fully-connected layers.
@@ -72,3 +74,5 @@ information which is lost in fully-connected layers.
 - ResNets generally have smaller magnitudes of responses compared to plain networks. This means that residual functions are closer to zero than non-residual functions, making them easier to optimize. In other words, the model has to learn just small corrections.
   
 - Residual connections are great but be carefull with too deep architectures, they can lead to overfitting!
+
+- Analyzing the gradients and the activations we can gain insights into why the model made predictions.
