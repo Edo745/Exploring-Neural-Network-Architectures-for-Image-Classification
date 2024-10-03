@@ -16,7 +16,11 @@ The dataset used for training and evaluation is CIFAR-10.
 
 4. **cnn30**  
 
-5. **residual_cnn30**  
+5. **residual_cnn30**
+
+7. **resnet18**
+   
+9. **resnet50**  
 
 ## Usage
 Install the requirements:
@@ -55,7 +59,8 @@ Each graph compares the three models (MLP, CNN, ResNet) to show their performanc
 The paper highlights that ResNets generally have smaller magnitudes of responses compared to plaid networks. Let's prove it!
 
 # What we have learned
-- The convolutional neural networks outperform MLPs for the task of image recognition. 
+- The convolutional neural networks outperform MLPs for the task of image recognition. The reason is that convolutional layers naturally retain spatial
+information which is lost in fully-connected layers.
 
 - As the depth of a neural network increases beyond a certain point, its performance on the training and test sets starts to degrade due to the vanishing of the gradients.
   
