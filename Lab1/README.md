@@ -38,22 +38,30 @@ You can track experiments and compare results using Weights & Biases using --log
 Then, the training logs, metrics, and gradients will be automatically uploaded to WandB.
 
 ## Results
-### Training Loss & Accuracy
-The following plots show the training and validation loss and accuracy curves for the three models (MLP, CNN, ResNet):
+### MLP vs CNN19  
+
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/167840b1-f7f6-4f5b-8063-6eeb51fb58f8" width="500" alt="Train Loss" title="Train Loss"/> 
-  <img src="https://github.com/user-attachments/assets/6450fad8-7e8a-4008-9a8a-157c3aeb9849" width="500" alt="Train Accuracy" title="Train Accuracy"/>
+  <img src="https://github.com/user-attachments/assets/957e0444-36c3-4949-8da9-310d22937d1f" width="400" alt="Train Loss" title="Train Loss"/> 
+  <img src="https://github.com/user-attachments/assets/5a17b226-359e-4827-8a24-be20c45cf134" width="400" alt="Train Accuracy" title="Train Accuracy"/>
 </p> 
 
-
-
-### Validation Loss & Accuracy
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/92bd3ba1-50db-49f7-88cb-2c63e02ac1e6" width="500" alt="Validation Loss" title="Validation Loss"/> 
-  <img src="https://github.com/user-attachments/assets/3664cbe2-a46a-4813-9fd1-f1a3eb6d26dc" width="500" alt="Validation Accuracy" title="Validation Accuracy"/>
+  <img src="https://github.com/user-attachments/assets/badc4ffe-9867-4cfb-a8ac-96032bac1632" width="400" alt="Validation Loss" title="Validation Loss"/> 
+  <img src="https://github.com/user-attachments/assets/a59e2fc9-da16-4817-afd5-83a2c8b07e4d" width="400" alt="Validation Accuracy" title="Validation Accuracy"/>
 </p> 
 
-Each graph compares the three models (MLP, CNN, ResNet) to show their performance during training and validation. From these figures, we can observe that ResNet converges faster and reaches higher accuracy due to the effectiveness of skip connections in deeper networks.
+### CNN19 vs CNN30  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c17ff6d6-5f78-49ee-832d-54f3ba37975c" width="400" alt="Train Loss" title="Train Loss"/> 
+  <img src="https://github.com/user-attachments/assets/13ce45db-dd02-418e-ac5b-3ff2346493eb" width="400" alt="Train Accuracy" title="Train Accuracy"/>
+</p> 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a3ba1b6a-7be5-4033-8a7d-fbc31a4ef229" width="400" alt="Validation Loss" title="Validation Loss"/> 
+  <img src="https://github.com/user-attachments/assets/2d28a100-8b2b-48a1-8995-0c28a5570d39" width="400" alt="Validation Accuracy" title="Validation Accuracy"/>
+</p> 
+
+### CNN30 vs ResidualCNN30  
 
 ### Layer responses analysis
 The paper highlights that ResNets generally have smaller magnitudes of responses compared to plaid networks. Let's prove it!
