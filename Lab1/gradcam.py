@@ -41,14 +41,11 @@ class GradCAM:
       self.model.zero_grad()
       output[0, class_index].backward()
 
-      # Calcola la Grad-CAM
       gradients = self.gradients.cpu().data.numpy()[0]
       activations = self.activations.cpu().data.numpy()[0]
 
-      # Calcola i pesi
       weights = np.mean(gradients, axis=(1, 2))
 
-      # Crea la mappa di attivazione
       cam = np.zeros(activations.shape[1:], dtype=np.float32)
 
       for i, w in enumerate(weights):
@@ -106,7 +103,7 @@ def main():
         model.fc = nn.Linear(model.fc.in_features, 10)
       else:
         model = models.resnet18()
-        model.fc = nn.Linear(model.fc.in_features, 10)
+        #model.fc = nn.Linear(model.fc.in_features, 10)
     elif args.model == 'resnet50':
         if args.pretrained:
           model = models.resnet50(pretrained=True)
@@ -128,7 +125,6 @@ def main():
       model.load_state_dict(checkpoint['state_dict'])
     model.eval()
 
-    # Preprocessamento dell'immagine
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
@@ -137,12 +133,13 @@ def main():
     
     dataset = datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
     dataloader = DataLoader(dataset, batch_size=1)
-
     input_image = None
+
     for img, lbl in dataloader:
-        if lbl.item() == class_idx: 
-            input_image = img.squeeze(0)
-            break 
+        if lbl.item() == class_idx:
+          input_image = img.squeeze(0)
+          break
+    
 
     inverse_normalize(input_image)
     plt.imshow(input_image.permute(1, 2, 0))
