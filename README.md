@@ -61,7 +61,7 @@ As we can observe the CNN outperforms the MLP. The latter has the disadvantage o
   <img src="https://github.com/user-attachments/assets/a101566d-6a57-4efb-89b1-c4a672753664" width="400" alt="Test Loss" title="Train Loss"/> 
 </p> 
 
-Observing the first epochs, the shallower CNN converges more quickly. As the epochs progress, CNN30 manages to achieve better accuracy, but this is also due to the phenomenon of overfitting. In general, as demonstrated in the paper \ref{https://arxiv.org/abs/1512.03385}, very deep architectures suffer from the problem of gradient degradation. 
+Observing the first epochs, the shallower CNN converges more quickly. As the epochs progress, CNN30 manages to achieve better accuracy, but this is also due to the phenomenon of overfitting. In general, as demonstrated in the paper (https://arxiv.org/abs/1512.03385), very deep architectures suffer from the problem of gradient degradation. 
 
 ### CNN vs ResNet: How residual connections can improve the accuracy and efficiency of the model 
 <p align="center">
@@ -74,7 +74,7 @@ Observing the first epochs, the shallower CNN converges more quickly. As the epo
   <img src="https://github.com/user-attachments/assets/3868584f-a62f-4ad1-a87e-01fbebd4cdd2" width="400" alt="Train Loss" title="Train Loss"/> 
 </p> 
 
-To address the problem of gradient vanishing, the authors of the paper \ref{https://arxiv.org/abs/1512.03385} propose the use of residual connections, providing a 'shortcut' for gradients to flow backwards directly from later layers to earlier layers. As we can observe from the figures, thanks to residual connections, there is faster convergence and better performance.
+To address the problem of gradient vanishing, the authors of the paper (https://arxiv.org/abs/1512.03385) propose the use of residual connections, providing a 'shortcut' for gradients to flow backwards directly from later layers to earlier layers. As we can observe from the figures, thanks to residual connections, there is faster convergence and better performance.
 
 This highlights how residual connections mitigate gradient vanishing and improve training efficiency and accuracy in deep networks.
 
@@ -83,6 +83,30 @@ Let's implement Grad-CAM following the paper [Grad-CAM: Visual Explanations from
 
 The idea is to analyze the gradients and the activations to gain insights into why the model made predictions.
 
+Run the gradcam.py script:
+```bash
+!python gradcam.py --model cnn19 --label "horse" --img-size 32 --target-layer "model.conv_block3[9]"
+!python gradcam.py --model cnn19 --label "frog" --img-size 32 --target-layer "model.conv_block3[9]"
+
+!python gradcam.py --model cnn30 --label "horse" --img-size 32 --target-layer "model.conv_block3[9]" 
+!python gradcam.py --model cnn30 --label "frog" --img-size 32 --target-layer "model.conv_block3[9]"
+
+!python gradcam.py --model resnet18 --label "horse" --img-size 32 --target-layer "model.layer4[-1]" 
+!python gradcam.py --model resnet18 --label "frog" --img-size 32 --target-layer "model.layer4[-1]"
+```
+### cnn19 vs cnn30 vs resnet18 - horse
+<p align="center">
+  <img width="600" src="https://github.com/user-attachments/assets/61055a96-f270-4f9d-a0c4-9a56043f02e8" alt="GradCAM_cnn19_horse_model conv_block3" title="GradCAM CNN19 Horse" />
+  <img width="600" src="https://github.com/user-attachments/assets/602521e6-574f-48c4-94ae-6da584b2792f" alt="GradCAM_cnn30_horse_model conv_block3" title="GradCAM CNN30 Horse" />
+  <img width="600" src="https://github.com/user-attachments/assets/fda4f04f-4832-4552-b809-ca5cbf4db784" alt="GradCAM_resnet18_horse_model layer4" title="GradCAM ResNet18 Horse" />
+</p>
+
+### cnn19 vs cnn30 vs resnet18 - frog
+<p align="center">
+  <img width="600"  src="https://github.com/user-attachments/assets/c92d03e6-0803-4811-9d0f-284aa4287e2a" alt="GradCAM_cnn19_frog_model conv_block3" title="GradCAM CNN19 Frog" />
+  <img width="600" src="https://github.com/user-attachments/assets/d84d4b69-9e43-436f-9eae-ce9fbb18088d" alt="GradCAM_cnn30_frog_model conv_block3" title="GradCAM CNN30 Frog" />
+  <img width="600" src="https://github.com/user-attachments/assets/e1780401-52fd-4f4e-9543-91ecb15cc3c9" alt="GradCAM_resnet18_frog_model layer4" title="GradCAM ResNet18 Frog" />
+</p>
 
 # Take home message
 - The convolutional neural networks outperform MLPs for the task of image recognition. Convolutional layers naturally retain spatial
