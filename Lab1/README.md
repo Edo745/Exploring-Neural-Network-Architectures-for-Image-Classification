@@ -21,6 +21,10 @@ The dataset used for training and evaluation is CIFAR-10.
   <img width="715" src="https://github.com/user-attachments/assets/2ab00c18-46d8-4a1e-b0c6-89f1a898cb19">
 </p>
 
+<p align="center">
+  <img width="720" src="https://github.com/user-attachments/assets/bb0e9bfd-b0dc-497f-9c2b-bc33a852d0ea">
+</p>
+
 
 ## Usage
 Install the requirements:
@@ -39,29 +43,25 @@ Then, the training logs, metrics, and gradients will be automatically uploaded t
 
 ## Results
 ### MLP vs CNN19  
-
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/957e0444-36c3-4949-8da9-310d22937d1f" width="400" alt="Train Loss" title="Train Loss"/> 
-  <img src="https://github.com/user-attachments/assets/5a17b226-359e-4827-8a24-be20c45cf134" width="400" alt="Train Accuracy" title="Train Accuracy"/>
+  <img src="https://github.com/user-attachments/assets/fd8d3d1e-29a4-4723-b1a6-ebb57ec1b936" width="400" alt="Train Accuracy" title="Train Accuracy"/>
+  <img src="https://github.com/user-attachments/assets/38657932-3cd4-4243-a247-9dc6c7f67322" width="400" alt="Test Accuracy" title="Test Accuracy"/>
 </p> 
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/badc4ffe-9867-4cfb-a8ac-96032bac1632" width="400" alt="Validation Loss" title="Validation Loss"/> 
-  <img src="https://github.com/user-attachments/assets/a59e2fc9-da16-4817-afd5-83a2c8b07e4d" width="400" alt="Validation Accuracy" title="Validation Accuracy"/>
-</p> 
+
 
 ### CNN19 vs CNN30  
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c17ff6d6-5f78-49ee-832d-54f3ba37975c" width="400" alt="Train Loss" title="Train Loss"/> 
-  <img src="https://github.com/user-attachments/assets/13ce45db-dd02-418e-ac5b-3ff2346493eb" width="400" alt="Train Accuracy" title="Train Accuracy"/>
+  <img src="https://github.com/user-attachments/assets/64c83487-c922-47c2-bf46-6d9293dddd15" width="400" alt="Train Loss" title="Train Loss"/> 
+  <img src="https://github.com/user-attachments/assets/a101566d-6a57-4efb-89b1-c4a672753664" width="400" alt="Test Loss" title="Train Loss"/> 
 </p> 
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/a3ba1b6a-7be5-4033-8a7d-fbc31a4ef229" width="400" alt="Validation Loss" title="Validation Loss"/> 
-  <img src="https://github.com/user-attachments/assets/2d28a100-8b2b-48a1-8995-0c28a5570d39" width="400" alt="Validation Accuracy" title="Validation Accuracy"/>
-</p> 
 
 ### CNN30 vs ResidualCNN30  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7526c49f-9d23-447e-921e-38360e908ca6" width="400" alt="Train Loss" title="Train Loss"/> 
+  <img src="https://github.com/user-attachments/assets/cd17ac09-5507-4e34-a85c-74d19bcde505" width="400" alt="Test Loss" title="Train Loss"/> 
+</p> 
 
 ### Layer responses analysis
 The paper highlights that ResNets generally have smaller magnitudes of responses compared to plaid networks. Let's prove it!
