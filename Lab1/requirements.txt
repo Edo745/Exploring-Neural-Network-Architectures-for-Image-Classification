@@ -1,5 +1,0 @@
-argparse
-torch
-torchvision
-tqdm
-wandb
