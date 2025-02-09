@@ -83,6 +83,15 @@ Let's implement Grad-CAM following the paper [Grad-CAM: Visual Explanations from
 
 The idea is to analyze the gradients and the activations to gain insights into why the model made predictions.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8300c781-45bb-4606-8f4e-27766ac40fa9" width="900"/> 
+</p> 
+
+1. The gradient of the feature map with respect to a target class is computed, obtaining k derivatives ((those colored in the figure).
+2. The global average pooling of each derivative is computed, obtaining k important weights.
+3. A linear combination is performed between the weights and the original feature maps (+ in the figure).
+4. A ReLU is applied because we are interested in the positive influence of each pixel.
+
 Run the gradcam.py script:
 ```bash
 !python gradcam.py --model cnn19 --label "horse" --img-size 32 --target-layer "model.conv_block3[9]"
